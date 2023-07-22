@@ -1,4 +1,3 @@
-                                                                                                      File: main.tf                                                                                                            
 resource "azurerm_resource_group" "rg" {
   name     = "rg_np_security_tf"
   location = "australiaeast"
