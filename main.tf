@@ -1,6 +1,7 @@
 resource "azurerm_resource_group" "rg" {
   name     = "rg_np_security_tf"
-  location = "australiaeast"
+  location = var.region
+  tags = var.tags
 }
 
 resource "azurerm_public_ip" "example" {
@@ -8,7 +9,6 @@ resource "azurerm_public_ip" "example" {
   resource_group_name = azurerm_resource_group.rg.name
   location            = azurerm_resource_group.rg.location
   allocation_method   = "Static"
-  sku = "Standard"
 
 }
 
@@ -31,12 +31,3 @@ resource "azurerm_lb_backend_address_pool" "example" {
   loadbalancer_id = azurerm_lb.lb.id
   name            = "BackendAddresspool"
 }
-
-
-
-
-
-
-
-
-
