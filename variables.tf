@@ -14,3 +14,11 @@ variable "tags" {
 
     }
 }
+
+variable "sku: {
+   description = "Defines sky for public IP address as well as Load balancer" 
+   type = string
+   default = "Standard"
+
+
+}
