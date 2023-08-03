@@ -9,7 +9,7 @@ resource "azurerm_public_ip" "example" {
   resource_group_name = azurerm_resource_group.rg.name
   location            = azurerm_resource_group.rg.location
   allocation_method   = "Static"
-  sku = "Standard"
+  sku = var.sku
 
 }
 
@@ -17,7 +17,7 @@ resource "azurerm_lb" "lb" {
   name                = "lb_np_tf"
   location            = azurerm_resource_group.rg.location
   resource_group_name = azurerm_resource_group.rg.name
-  sku                 = "Standard"
+  sku                 = var.sku
   tags = var.tags
 
 
