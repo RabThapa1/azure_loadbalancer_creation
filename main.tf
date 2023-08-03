@@ -17,6 +17,8 @@ resource "azurerm_lb" "lb" {
   location            = azurerm_resource_group.rg.location
   resource_group_name = azurerm_resource_group.rg.name
   sku                 = "Standard"
+  tags = var.tags
+
 
   frontend_ip_configuration {
     name                 = "PubliIPAddress"
