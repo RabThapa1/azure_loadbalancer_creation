@@ -34,3 +34,13 @@ resource "azurerm_lb_backend_address_pool" "example" {
   loadbalancer_id = azurerm_lb.lb.id
   name            = "BackendAddresspool"
 }
+
+
+data "azurerm_virutal_network" "example" {
+
+name= "vnet-np-tf"
+resource_group_name = "rg-np-vnets"
+
+}
+
+
