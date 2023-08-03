@@ -47,7 +47,7 @@ resource "azurerm_lb_backend_address_pool_address" "pld" {
 
  name = "pldaddaress"
  backend_address_pool_id = azurerm_lb_backend_address_pool.backend.id
- virtual_network_id = data.azurerm_virtual_network_example.id
+ virtual_network_id = data.azurerm_virtual_network.example.id
  ipaddress =  "10.0.0.1"
 }
 
