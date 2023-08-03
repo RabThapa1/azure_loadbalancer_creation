@@ -1,4 +1,4 @@
 output "virutal_network_id" {
-  value = data.azurerm_virutal_network.example.id
+  value = data.azurerm_virtual_network.example.id
 
 }
