@@ -5,7 +5,7 @@ resource "azurerm_resource_group" "rg" {
 }
 
 resource "azurerm_public_ip" "example" {
-  name                = "public_ip_np_lb"
+  name                = "public_ip_${var.tags["environment"]}_lb"
   resource_group_name = azurerm_resource_group.rg.name
   location            = azurerm_resource_group.rg.location
   allocation_method   = "Static"
@@ -14,7 +14,7 @@ resource "azurerm_public_ip" "example" {
 }
 
 resource "azurerm_lb" "lb" {
-  name                = "lb_np_tf"
+  name                = "lb_${var.tags["environment"]}_tf"
   location            = var.region
   resource_group_name = azurerm_resource_group.rg.name
   sku                 = var.sku
