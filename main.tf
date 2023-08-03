@@ -7,7 +7,7 @@ resource "azurerm_resource_group" "rg" {
 resource "azurerm_public_ip" "example" {
   name                = "public_ip_${var.tags["environment"]}_lb"
   resource_group_name = azurerm_resource_group.rg.name
-  location            = azurerm_resource_group.rg.location
+  location            = var.region
   allocation_method   = "Static"
   sku = var.sku
 
