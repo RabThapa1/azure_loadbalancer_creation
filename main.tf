@@ -30,7 +30,8 @@ resource "azurerm_lb" "lb" {
 }
 
 
-resource "azurerm_lb_backend_address_pool" "example" {
+resource "azurerm_lb_backend_address_pool" "backend" {
+
   loadbalancer_id = azurerm_lb.lb.id
   name            = "BackendAddresspool"
 }
@@ -41,6 +42,14 @@ data "azurerm_virutal_network" "example" {
 name= "vnet-np-tf"
 resource_group_name = "rg-np-vnets"
 
+}
+
+resource "azure_rm_backend_address_pool_address" "pld" {
+
+ name = "pldaddaress"
+ backend_address_pool_id = azurerm_lb_backend_address_pool.backend.id
+ virtual_network_id = data.azurerm_virtual_network_example.id
+ ipaddress =  "10.0.0.1"
 }
 
 
